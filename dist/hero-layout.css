@@ -1,0 +1,117 @@
+/* First-screen typography and photo slideshow. */
+.ocean-hero{position:relative;isolation:isolate;overflow:hidden;background:#0f2f5b;min-height:0}
+.hero-shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#0c2548f7 0%,#0e2c56e8 28%,#103260a8 49%,#123a6f40 72%,#14407a17 100%),linear-gradient(0deg,#0f2f5be8,transparent 35%,transparent 85%,#0f2f5b40)}
+.hero-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;gap:35px;min-height:calc(100svh - 88px);padding-top:clamp(45px,7vh,100px);padding-bottom:45px;max-width:1376px}
+.hero-copy{position:relative;z-index:3;width:100%;max-width:730px;min-width:0;margin-block:auto}
+.hero-copy h1{font-size:clamp(59px,6vw,86px);line-height:1.01;letter-spacing:-2.5px}
+.hero-kicker{font-size:10px;letter-spacing:.6px;max-width:100%}
+.hero-description{font-size:18px;line-height:1.75;max-width:540px;margin-bottom:20px;color:#e2f0f8}
+.hero-description .desktop-break{display:none}
+.hero-offer{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;line-height:1.65;color:#fff2a3;margin:0 0 24px}
+.hero-offer>span{width:7px;height:7px;flex-shrink:0;border-radius:50%;background:#ffe165;box-shadow:0 0 0 4px #ffeb9612}
+.hero-actions{flex-wrap:wrap;gap:20px}
+.hero-actions>.button{font-size:15px;padding:16px 22px;min-height:55px;gap:20px}
+.hero-schedule-link{font-size:14px}
+.hero-facts{position:static;display:grid;grid-template-columns:repeat(3,1fr);gap:26px;width:100%;margin:0;padding-top:23px;border-top:1px solid #b5ddf44a}
+.hero-facts>div{min-width:0;padding:8px 16px;background:none}
+.hero-facts strong{font-size:20px}
+.hero-facts span{font-size:13px;color:#dcedf6}
+.hero-wave{z-index:3;height:30px}
+@media(min-width:1600px){.hero-content{padding-top:70px;padding-bottom:48px}.hero-copy h1{font-size:90px}}
+@media(max-width:1150px){.hero-content{gap:30px;padding-top:44px;padding-bottom:42px}.hero-copy{max-width:650px}.hero-copy h1{font-size:clamp(58px,6.3vw,74px)}.hero-kicker{font-size:9px;letter-spacing:.3px}.hero-description{font-size:16px}.hero-offer{font-size:13px}.hero-actions{gap:16px}.hero-actions>.button{font-size:13px;padding:15px 20px}.hero-schedule-link{font-size:12px}.hero-facts strong{font-size:18px}.hero-facts span{font-size:12px}}
+@media(max-width:900px){.hero-content{gap:29px;padding-top:38px;padding-bottom:42px}.hero-copy{max-width:680px}.hero-copy h1{font-size:clamp(60px,9vw,82px)}.hero-kicker{font-size:10px}.hero-description{font-size:17px;max-width:580px}.hero-offer{font-size:15px}.hero-actions{flex-direction:row;align-items:center}.hero-actions>.button{font-size:15px}.hero-schedule-link{font-size:14px}.hero-facts{padding-top:24px;gap:14px}.hero-facts strong{font-size:17px}.hero-facts span{font-size:12px}.water-glints{opacity:.1}.hero-shade{background:linear-gradient(90deg,#0c2548ed,#0e2c56c7 48%,#123a6f70),linear-gradient(0deg,#0f2f5be8,transparent 45%)}}
+@media(max-width:680px){.hero-content{min-height:calc(100svh - 78px);padding-top:31px;padding-bottom:35px;gap:28px}.hero-copy h1{font-size:clamp(43px,11.5vw,67px);line-height:1.04;letter-spacing:-1.6px;margin-bottom:23px}.hero-kicker{font-size:9px;max-width:100%;letter-spacing:.1px;margin-bottom:22px}.hero-description{font-size:16px;line-height:1.75;max-width:100%;margin-bottom:20px}.hero-offer{font-size:13px;line-height:1.65;margin-bottom:23px;gap:8px}.hero-actions{gap:20px;flex-direction:row;flex-wrap:wrap}.hero-actions>.button{font-size:15px;min-height:54px;padding:15px 21px}.hero-schedule-link{font-size:13px}.hero-facts{padding-top:20px;gap:9px}.hero-facts>div{padding:5px 0 5px 8px}.hero-facts strong{font-size:14px;margin-bottom:6px}.hero-facts span{font-size:11px;line-height:1.6;max-width:110px}.hero-wave{height:23px}.hero-shade{background:linear-gradient(90deg,#0c2548e8,#0e2c56b5),linear-gradient(0deg,#0f2f5bed,transparent 60%)}}
+@media(max-width:380px){.hero-copy h1{font-size:42px}.hero-kicker{font-size:8px}.hero-offer{font-size:12px}.hero-facts strong{font-size:12px}.hero-facts span{font-size:10px}}
+
+#hero-pool-slide {
+  background: #102d55;
+}
+
+#hero-pool-slide .hero-shade {
+  background:
+    linear-gradient(90deg, #081d3caf 0 33%, #0a234985 46%, #0a234925 66%, transparent 84%),
+    linear-gradient(0deg, #071d3bd1 0%, #071d3b54 20%, transparent 43%);
+}
+
+#hero-pool-slide .hero-copy h1,
+#hero-pool-slide .hero-description {
+  text-shadow: 0 2px 9px #071d3bc9;
+}
+
+#hero-pool-slide .water-glints {
+  opacity: .09;
+}
+
+.hero-gallery,
+.hero-gallery-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-gallery {
+  z-index: -3;
+  pointer-events: none;
+}
+
+.hero-gallery-frame::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  -webkit-mask-image: linear-gradient(90deg, #000 0 25%, #000b 38%, transparent 65%);
+  mask-image: linear-gradient(90deg, #000 0 25%, #000b 38%, transparent 65%);
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity .8s ease-in-out;
+}
+
+.hero-photo.is-active {
+  z-index: 1;
+  opacity: 1;
+}
+
+.hero-photo-emblem {
+  background: #e33030;
+  object-fit: contain;
+  object-position: right 6vw center;
+}
+
+@media (max-width: 680px) {
+  #hero-pool-slide .hero-shade {
+    background:
+      linear-gradient(90deg, #081d3cae 0 40%, #0a23498f 71%, #0a23496e),
+      linear-gradient(0deg, #071d3bd6 0%, #071d3b50 22%, transparent 58%);
+  }
+
+  .hero-gallery-frame::after {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    -webkit-mask-image: linear-gradient(90deg, #000 0 29%, #000a 53%, transparent 90%);
+    mask-image: linear-gradient(90deg, #000 0 29%, #000a 53%, transparent 90%);
+  }
+
+  .hero-photo {
+    object-position: 63% center;
+  }
+
+  .hero-photo-emblem {
+    object-position: center 84%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo {
+    transition: none;
+  }
+}

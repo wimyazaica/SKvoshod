@@ -1,0 +1,102 @@
+/* Colored price-card surfaces and readable numerals. */
+#prices .price-grid > .price-card {
+  --price-glass-rgb: 246, 251, 255;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: rgba(var(--price-glass-rgb), .82);
+  border-left-color: #bdd3df;
+  border-right-color: #bdd3df;
+  border-bottom-color: #bdd3df;
+  box-shadow: inset 0 0 0 1px #ffffffb5, 0 10px 28px #0f315e0a;
+  color: #0b2343;
+}
+
+
+#prices .price-grid > .price-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+#prices .price-grid > .price-card::after {
+  z-index: 1;
+  background:
+    linear-gradient(90deg,
+      rgba(var(--price-glass-rgb), .63) 0%,
+      rgba(var(--price-glass-rgb), .46) 48%,
+      rgba(var(--price-glass-rgb), .22) 100%),
+    linear-gradient(180deg,
+      rgba(var(--price-glass-rgb), .32) 0%,
+      rgba(var(--price-glass-rgb), .12) 24%,
+      rgba(var(--price-glass-rgb), .56) 39%,
+      rgba(var(--price-glass-rgb), .66) 59%,
+      rgba(var(--price-glass-rgb), .25) 78%,
+      rgba(var(--price-glass-rgb), .02) 100%);
+}
+#prices .price-grid > .price-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* The featured option keeps its blue identity and existing dark CTA. */
+#prices .price-grid > .price-card.featured {
+  --price-glass-rgb: 206, 235, 252;
+  background-color: #9ed4f1;
+  border-left-color: #80a4cd;
+  border-right-color: #80a4cd;
+  border-bottom-color: #80a4cd;
+  box-shadow: inset 0 0 0 1px #e2f3fca8, 0 12px 30px #13407713;
+}
+#prices .price-card .price {
+  color: #0b2343;
+  border-radius: 9px;
+  background: linear-gradient(90deg,
+    rgba(var(--price-glass-rgb), .82),
+    rgba(var(--price-glass-rgb), .48) 60%,
+    rgba(var(--price-glass-rgb), 0));
+  box-shadow: -7px 0 0 rgba(var(--price-glass-rgb), .82);
+}
+#prices .price-card .card-description,
+#prices .price-card .features,
+#prices .price-card .price > span {
+  color: #213858;
+}
+#prices .price-card .features {
+  border-top-color: #859cb79c;
+}
+#prices .price-card .button-outline {
+  background: #fafff9eb;
+  border-color: #768ea9;
+  color: #0d294f;
+  box-shadow: 0 3px 10px #0f305d0a;
+}
+#prices .price-card .button-outline:hover {
+  background: #e6f5fd;
+  border-color: #264d7d;
+}
+#prices .price-grid > .price-card:hover {
+  box-shadow: inset 0 0 0 1px #ffffffcf, 0 16px 35px #0f315e18;
+}
+
+@media (max-width: 600px) {
+  #prices .price-grid > .price-card::after {
+    background:
+      linear-gradient(90deg,
+        rgba(var(--price-glass-rgb), .66),
+        rgba(var(--price-glass-rgb), .25)),
+      linear-gradient(180deg,
+        rgba(var(--price-glass-rgb), .35) 0%,
+        rgba(var(--price-glass-rgb), .13) 25%,
+        rgba(var(--price-glass-rgb), .61) 40%,
+        rgba(var(--price-glass-rgb), .70) 61%,
+        rgba(var(--price-glass-rgb), .23) 82%,
+        rgba(var(--price-glass-rgb), .02) 100%);
+  }
+}
+@media (forced-colors: active) {
+  #prices .price-grid > .price-card::after { display: none; }
+  #prices .price-grid > .price-card,
+  #prices .price-grid > .price-card.featured,
+  #prices .price-card .price { background: Canvas; color: CanvasText; box-shadow: none; }
+}

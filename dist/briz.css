@@ -1,0 +1,352 @@
+:root {
+  --mint: #c5eee8;
+  --mint-ink: #17655f;
+  --lavender: #e8e4ff;
+  --lavender-ink: #51458c;
+  --muted-blue: #3d5e7b;
+}
+
+.header {
+  background: #fafdffee;
+}
+
+.brand > span {
+  color: var(--ink);
+  white-space: nowrap;
+  letter-spacing: -.045em;
+}
+
+.brand-light {
+  color: var(--teal);
+  font-weight: 700;
+  margin-inline-start: .26em;
+}
+
+.brand small {
+  letter-spacing: .065em;
+  color: var(--muted-blue);
+}
+
+.header .mobile-nav {
+  display: none;
+}
+
+.section-intro,
+.coach p:not(.coach-role),
+.coaches-moment figcaption {
+  color: var(--muted-blue);
+}
+
+.schedule-section {
+  background: #163e64;
+}
+
+.schedule-section .section-intro {
+  color: #e0f2ff;
+}
+
+.weekdays {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.schedule-day {
+  min-width: 0;
+}
+
+.camp-section {
+  background: #236994;
+}
+
+.contact-section {
+  background: #123557;
+}
+
+.contact-card,
+.proof-card {
+  background: #fff;
+}
+
+#prices .price-grid > .price-card:nth-child(3) {
+  --price-glass-rgb: 255, 245, 220;
+}
+
+#prices .price-grid > .price-card:nth-child(4) {
+  --price-glass-rgb: 222, 246, 243;
+}
+
+#prices .price-card .price-availability {
+  align-self: flex-start;
+  margin: 0 0 2px;
+  padding: 6px 11px;
+  border-radius: 9px;
+  background: #f8fcff;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.coaches-layout .coach-portrait:not(:has(img)) {
+  display: grid;
+  place-items: center;
+  background: var(--mint);
+}
+
+.coaches-layout .coach-portrait:not(:has(img)) .coach-initials {
+  color: var(--mint-ink);
+  letter-spacing: -.05em;
+}
+
+.coaches-layout .coach:nth-child(2) .coach-portrait:not(:has(img)) {
+  background: var(--lavender);
+}
+
+.coaches-layout .coach:nth-child(2) .coach-portrait:not(:has(img)) .coach-initials {
+  color: var(--lavender-ink);
+}
+
+.location-card .location-footer > p {
+  color: var(--muted-blue);
+}
+
+:where(.header, .footer, .proof-section) :focus-visible {
+  outline-color: #226399;
+}
+
+@media (min-width: 681px) and (max-width: 1000px) {
+  .coaches-layout .coach {
+    grid-template-columns: minmax(74px, 32%) minmax(0, 1fr);
+  }
+
+  .coaches-layout .coach-portrait:not(:has(img)) {
+    min-height: 100px;
+    align-self: center;
+  }
+}
+
+@media (max-width: 780px) {
+  .header .nav {
+    display: none;
+  }
+
+  .header .header-cta {
+    margin-inline-start: auto;
+  }
+
+  .header .menu-toggle {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  .menu-toggle span {
+    width: 15px;
+    height: 1px;
+    background: var(--ink);
+    transition: transform .3s;
+  }
+
+  .menu-toggle[aria-expanded=true] span:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded=true] span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+
+  .header .mobile-nav:not([hidden]) {
+    position: absolute;
+    inset: 100% 0 auto;
+    display: block;
+    padding: 12px 24px 22px;
+    background: #f9fcff;
+    box-shadow: 0 15px 25px #12355720;
+  }
+
+  .mobile-nav a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 680px) {
+  .header .brand > span {
+    font-size: clamp(15px, 4.15vw, 20px);
+  }
+
+  .header .brand img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .coaches-layout .coach-portrait:not(:has(img)) {
+    min-height: 110px;
+    align-self: center;
+  }
+
+  .schedule-day {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .weekdays {
+    gap: 4px;
+  }
+
+  .schedule-day {
+    font-size: 12px;
+    min-height: 48px;
+    padding-inline: 0;
+  }
+}
+
+.schedule-day[aria-selected="true"],
+.time-choice[aria-pressed="true"] {
+  border-color: #1e6494;
+}
+
+.edit-booking {
+  display: block;
+  margin: -9px 0 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--teal);
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.edit-booking[hidden] {
+  display: none;
+}
+
+#booking-status:empty {
+  display: none;
+}
+
+#booking-text:not([hidden]) {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  font: inherit;
+  resize: vertical;
+}
+
+
+#copy-booking[hidden] { display: none; }
+
+
+.contact-telegram {
+  color: #d4f1ff;
+}
+
+.contact-telegram:hover {
+  color: #fff;
+}
+
+.booking-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  margin: 0 0 20px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #eef8ff;
+}
+
+.booking-tabs[hidden] {
+  display: none;
+}
+
+.booking-tab {
+  min-height: 43px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: #315879;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.booking-tab[aria-selected="true"] {
+  border-color: #badcf2;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 2px 6px #194a7212;
+}
+
+.booking-tab:hover:not([aria-selected="true"]) {
+  background: #dceefa;
+}
+
+.booking-panel > .button {
+  width: 100%;
+  min-height: 49px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.booking-call .booking-call-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  font: inherit;
+  line-height: 1.35;
+}
+
+.booking-call-text small {
+  font-size: 13px;
+}
+
+.booking-location {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.booking-location h4 {
+  margin: 0 0 5px;
+  color: var(--ink);
+  font-size: 17px;
+}
+
+.booking-location p {
+  margin: 0 0 12px;
+  color: var(--muted-blue);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.booking-location iframe {
+  display: block;
+  width: 100%;
+  height: 165px;
+  border: 0;
+  border-radius: 12px;
+  background: #e6f3fb;
+}
+
+.booking-location .text-link {
+  margin-top: 11px;
+}

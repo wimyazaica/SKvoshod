@@ -1,0 +1,346 @@
+.coach-schedule-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.coach-schedule-tabs[hidden],
+.coach-schedule-panel[hidden],
+.coach-schedules .weekdays[hidden],
+.coach-slot-grid[hidden] {
+  display: none;
+}
+
+.coach-schedule-tab {
+  min-height: 48px;
+  padding: 11px 22px;
+  border: 1px solid #a9cee8;
+  border-radius: 999px;
+  background: #215785;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background .25s, color .25s;
+}
+
+.coach-schedule-tab[aria-selected=true] {
+  border-color: #a3e6ff;
+  background: #a3e6ff;
+  color: #123557;
+}
+
+.coach-schedule-tab:hover:not([aria-selected=true]) {
+  background: #2c699a;
+}
+
+.coach-schedule-panel + .coach-schedule-panel:not([hidden]) {
+  margin-top: 16px;
+}
+
+.coach-schedule-panel[hidden] + .coach-schedule-panel {
+  margin-top: 0;
+}
+
+.coach-schedule-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.coach-schedule-note {
+  margin: 14px 0 0;
+  color: var(--muted-blue);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.coach-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.coach-slot-grid .coach-time-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+  min-height: 68px;
+  padding: 9px 12px;
+  border-radius: 13px;
+  background: #fff;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.coach-slot-grid .coach-time-choice:hover,
+.coach-slot-grid .coach-time-choice[aria-pressed=true] {
+  background: #c7e7f8;
+}
+
+.coach-time-choice strong {
+  font-size: 17px;
+}
+
+.coach-time-choice small {
+  color: #3d5e7b;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.coach-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.coach-contact-card {
+  display: grid;
+  grid-template-columns: clamp(82px, 10vw, 124px) minmax(0, 1fr);
+  grid-template-rows: 1fr auto;
+  align-items: start;
+  gap: 20px;
+  padding: 25px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #fff;
+  color: var(--muted-blue);
+  box-shadow: 0 10px 30px #12355709;
+}
+
+.coach-contact-card h3 {
+  margin: 0 0 9px;
+  color: var(--ink);
+  font-size: clamp(22px, 2.6vw, 29px);
+}
+
+.coach-contact-card p:not(.coach-role) {
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.coach-card-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.coach-card-links,
+.coach-card-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+
+.coach-card-links a {
+  color: #226399;
+  font-weight: 700;
+}
+
+.coach-card-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.coach-card-actions {
+  grid-column: 1 / -1;
+  justify-content: space-between;
+  align-self: end;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.coach-card-actions .button {
+  min-height: 44px;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+@media (max-width: 780px) {
+  .coach-contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .coach-schedule-tabs {
+    gap: 8px;
+  }
+
+  .coach-schedule-tab {
+    flex: 1 1 126px;
+    padding-inline: 12px;
+    font-size: 14px;
+  }
+
+  .coach-slot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .coach-contact-card {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .coach-card-photo {
+    border-radius: 13px;
+  }
+}
+
+.training-formats,
+.training-questions {
+  margin-top: 42px;
+}
+
+.training-formats h3,
+.training-questions h3 {
+  margin: 0 0 16px;
+  color: var(--ink);
+  font-size: clamp(24px, 3vw, 32px);
+}
+
+.training-format-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.training-format {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: #fff;
+}
+
+.training-format h4 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.training-format p,
+.training-format-note,
+.training-questions details p {
+  color: var(--muted-blue);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.training-format .text-link {
+  margin-top: auto;
+}
+
+.training-format-note {
+  margin: 14px 0 0;
+}
+
+.training-questions details {
+  padding: 13px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f8fcff;
+}
+
+.training-questions details + details {
+  margin-top: 8px;
+}
+
+.training-questions summary,
+.coach-week summary {
+  color: var(--ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.training-questions details p {
+  margin: 9px 0 0;
+}
+
+.coach-week {
+  margin: 14px 0 17px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f4faff;
+}
+
+.coach-week-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 13px;
+}
+
+.coach-week-list > div {
+  padding: 10px 11px;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--muted-blue);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.coach-week-list strong,
+.coach-week-list b {
+  color: var(--ink);
+}
+
+.coach-week-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+}
+
+.coach-facts {
+  display: grid;
+  gap: 9px;
+  margin: 0 0 13px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.coach-facts dt {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.coach-facts dd {
+  margin: 2px 0 0;
+}
+
+@media (max-width: 940px) {
+  .training-format-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 540px) {
+  .training-format-grid,
+  .coach-week-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .training-formats,
+  .training-questions {
+    margin-top: 30px;
+  }
+}
+
+.faq-link {
+  color: var(--teal);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
